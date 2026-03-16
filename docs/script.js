@@ -434,11 +434,11 @@ function askSecretCode() {
 }
 
 function init() {
-  // Quick visible feedback that the script is running.
-  const indicator = document.createElement('div');
-  indicator.textContent = '⚡ Ready';
-  indicator.style = 'position: fixed; bottom: 16px; right: 16px; padding: 8px 12px; border-radius: 999px; background: rgba(0,0,0,0.55); color: white; font-size: 0.85rem; z-index: 2000;';
-  document.body.appendChild(indicator);
+  const status = document.getElementById('js-status');
+  if (status) {
+    status.textContent = 'JS running';
+    status.classList.add('running');
+  }
 
   document.getElementById('home-button').addEventListener('click', goHome);
   document.getElementById('secret-button').addEventListener('click', askSecretCode);

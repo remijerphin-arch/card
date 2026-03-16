@@ -244,6 +244,27 @@ button:hover:not(:disabled) {
   border-radius: 999px;
 }
 
+.js-status {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 0.85rem;
+  z-index: 2000;
+  pointer-events: none;
+  opacity: 0.88;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+
+.js-status.running {
+  background: rgba(40, 220, 150, 0.92);
+  color: #0b1220;
+  transform: scale(1.05);
+}
+
 @media (max-width: 600px) {
   .container {
     padding: 26px 18px;
