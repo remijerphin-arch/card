@@ -1,5 +1,15 @@
 const birthdayName = 'Sanshia';
 
+window.onerror = (message, source, line, column, error) => {
+  const status = document.getElementById('js-status');
+  if (status) {
+    status.textContent = 'JS error: ' + (message || 'unknown');
+    status.style.background = 'rgba(255, 90, 90, 0.95)';
+  }
+  console.error('JS Error:', message, source, line, column, error);
+  return false;
+};
+
 const puzzlePages = [
   {
     title: `Hello, ${birthdayName}!`,
