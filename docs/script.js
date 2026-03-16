@@ -269,11 +269,11 @@ console.log(countdown(1));`,
         },
         {
           title: 'Page 20: Happy Birthday! 🎉',
-          friendshipCode: `const birthdayWish = () => {
-  return `Happy 20th Birthday, ${birthdayName}! May every chapter be your best yet.`;
+          friendshipCode: `const birthdayWish = (name) => {
+  return 'Happy 20th Birthday, ' + name + '! May every chapter be your best yet.';
 };
 
-console.log(birthdayWish());`,
+console.log(birthdayWish('${name}'));`,
           puzzle: 'This is the final page—no puzzle needed.\nJust click the button and enjoy the surprise!',
           answer: '',
           hint: 'No answer required — just celebrate!',
