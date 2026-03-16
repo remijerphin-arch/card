@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Happy 20th Birthday, Sanshia!</title>
+    <meta name="description" content="A 20-page interactive birthday card for Sanshia with puzzles, secrets, and celebration." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container" role="main">
+      <header>
+        <div>
+          <h1>Happy 20th Birthday, <span class="highlight">Sanshia</span> 🎉</h1>
+          <p class="muted">A 20-page surprise full of puzzles, codes, and friendship.</p>
+        </div>
+        <div>
+          <button id="home-button" aria-label="Go to first page">🏠 Home</button>
+        </div>
+      </header>
+
+      <section class="progress" aria-label="Progress">
+        <span id="progress-text">Page 1 of 20</span>
+        <div class="progress-bar">
+          <div id="progress-bar-fill"></div>
+        </div>
+      </section>
+
+      <article class="card">
+        <h2 id="page-title">Loading…</h2>
+
+        <pre id="friendship-code" aria-label="Friendship code snippet"></pre>
+
+        <div class="puzzle-section">
+          <h3>Puzzle</h3>
+          <p id="puzzle-text"></p>
+          <p class="hint" id="puzzle-hint"></p>
+
+          <div class="input-group">
+            <input id="answer-input" type="text" placeholder="Type your answer here..." autocomplete="off" />
+            <button id="check-button">Check</button>
+          </div>
+
+          <button id="next-button" disabled>Next Page</button>
+        </div>
+
+        <div class="meta">
+          <small id="score-text">Solved: 0/20</small>
+          <small>
+            Tip: Use <kbd>Enter</kbd> to submit answers.
+          </small>
+        </div>
+
+        <div class="celebrate" id="celebration" aria-live="polite">
+          <h2>🎊 Happy Birthday, Sanshia! 🎊</h2>
+          <p>All 20 pages unlocked — and the best is yet to come.</p>
+          <p>Here’s to you: a friendship as bright as the stars.</p>
+        </div>
+      </article>
+    </div>
+
+    <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
