@@ -12,64 +12,54 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js" defer></script>
   </head>
-  <body ng-app="birthdayApp">
-    <div class="container" role="main" ng-controller="CardController as vm">
+  <body>
+    <div class="container" role="main">
       <header>
         <div>
-          <h1>Happy 20th Birthday, <span class="highlight">{{ vm.name }}</span> 🎉</h1>
+          <h1>Happy 20th Birthday, <span class="highlight">Sanshia</span> 🎉</h1>
           <p class="muted">A 20-page surprise full of puzzles, codes, and friendship.</p>
         </div>
         <div class="header-actions">
-          <button ng-click="vm.askSecretCode()" aria-label="Enter secret code">🔐 Secret</button>
-          <button ng-click="vm.goHome()" aria-label="Go to first page">🏠 Home</button>
+          <button id="secret-button" aria-label="Enter secret code">🔐 Secret</button>
+          <button id="home-button" aria-label="Go to first page">🏠 Home</button>
         </div>
       </header>
 
       <section class="progress" aria-label="Progress">
-        <span id="progress-text">Page {{ vm.pageIndex + 1 }} of {{ vm.total }}</span>
+        <span id="progress-text">Page 1 of 20</span>
         <div class="progress-bar">
-          <div id="progress-bar-fill" ng-style="{ width: vm.progress + '%' }"></div>
+          <div id="progress-bar-fill"></div>
         </div>
       </section>
 
       <article class="card">
-        <h2 id="page-title">{{ vm.page.title }}</h2>
+        <h2 id="page-title">Loading…</h2>
 
-        <pre id="friendship-code" aria-label="Friendship code snippet">{{ vm.page.friendshipCode }}</pre>
+        <pre id="friendship-code" aria-label="Friendship code snippet"></pre>
 
         <div class="puzzle-section">
           <h3>Puzzle</h3>
-          <p id="puzzle-text">{{ vm.page.puzzle }}</p>
-          <p class="hint" id="puzzle-hint">{{ vm.page.hint }}</p>
+          <p id="puzzle-text"></p>
+          <p class="hint" id="puzzle-hint"></p>
 
           <div class="input-group">
-            <input
-              id="answer-input"
-              type="text"
-              placeholder="Type your answer here..."
-              autocomplete="off"
-              ng-model="vm.answer"
-              ng-disabled="vm.isLastPage"
-              ng-keydown="vm.onKeydown($event)"
-              aria-label="Your answer"
-            />
-            <button id="check-button" ng-click="vm.checkAnswer()" ng-disabled="vm.isLastPage">Check</button>
+            <input id="answer-input" type="text" placeholder="Type your answer here..." autocomplete="off" />
+            <button id="check-button">Check</button>
           </div>
 
-          <button id="next-button" ng-click="vm.nextPage()" ng-disabled="!vm.canProceed">{{ vm.nextButtonText }}</button>
+          <button id="next-button" disabled>Next Page</button>
         </div>
 
         <div class="meta">
-          <small id="score-text">Solved: {{ vm.solved }}/{{ vm.total }}</small>
+          <small id="score-text">Solved: 0/20</small>
           <small>
             Tip: Use <kbd>Enter</kbd> to submit answers.
           </small>
         </div>
 
-        <div class="celebrate" id="celebration" aria-live="polite" ng-show="vm.celebrateVisible">
-          <h2>🎊 Happy Birthday, {{ vm.name }}! 🎊</h2>
+        <div class="celebrate" id="celebration" aria-live="polite">
+          <h2>🎊 Happy Birthday, Sanshia! 🎊</h2>
           <p>All 20 pages unlocked — and the best is yet to come.</p>
           <p>Here’s to you: a friendship as bright as the stars.</p>
         </div>
@@ -78,11 +68,11 @@
 
     <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
 
-    <div id="secret-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="secret-title" ng-show="vm.secretOpen">
+    <div id="secret-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="secret-title" hidden>
       <div class="modal-content">
         <h2 id="secret-title">Secret Page</h2>
         <p>Sorry… nothing is inside yet. 💛</p>
-        <button ng-click="vm.closeSecretModal()">Close</button>
+        <button id="close-secret">Close</button>
       </div>
     </div>
 
