@@ -201,6 +201,49 @@ button:hover:not(:disabled) {
   z-index: 999;
 }
 
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(11, 18, 32, 0.75);
+  padding: 24px;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal-content {
+  width: min(580px, 100%);
+  max-width: 580px;
+  padding: 28px 28px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin: 0 0 10px;
+  font-size: clamp(1.6rem, 2.2vw, 2.4rem);
+}
+
+.modal-content p {
+  margin: 0 0 18px;
+  color: rgba(246, 247, 255, 0.82);
+  line-height: 1.6;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 999px;
+}
+
 @media (max-width: 600px) {
   .container {
     padding: 26px 18px;
